@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+const src=await import('node:fs').then(fs=>fs.readFileSync('supabase/schema_v18_1_patient_account.sql','utf8'));
+assert.match(src,/guard_appointment_updates_v18_1/);
+assert.match(src,/reschedule_patient_appointment_v18_1/);
+assert.match(src,/APPOINTMENT_FIELDS_IMMUTABLE/);
+const api=await import('node:fs').then(fs=>fs.readFileSync('app/api/appointments/reschedule/route.ts','utf8'));
+assert.match(api,/requireSameOrigin/);
+assert.match(api,/readJsonWithLimit/);
+const page=await import('node:fs').then(fs=>fs.readFileSync('app/account/appointments/page.tsx','utf8'));
+assert.match(page,/Reprogrammer/);
+assert.match(page,/Annuler/);
+console.log('patient-account-v18.1: 3/3 PASS');

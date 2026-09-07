@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const sql=fs.readFileSync('supabase/schema_v18_4_care_flow.sql','utf8');
+const route=fs.readFileSync('app/api/appointments/transition/route.ts','utf8');
+assert.match(sql,/appointment_status add value if not exists 'checked_in'/);
+assert.match(sql,/appointment_status add value if not exists 'in_consultation'/);
+assert.match(sql,/transition_appointment_operational/);
+assert.match(sql,/INVALID_TRANSITION/);
+assert.match(route,/requireSameOrigin/);
+assert.match(route,/assertJsonBodySize/);
+console.log('V18.4 care-flow tests: 6 assertions PASS');

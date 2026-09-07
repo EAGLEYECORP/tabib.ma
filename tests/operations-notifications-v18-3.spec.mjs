@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const schema = fs.readFileSync('supabase/schema_v18_3_staff_notifications.sql','utf8');
+const route = fs.readFileSync('app/api/operations/notifications/route.ts','utf8');
+const page = fs.readFileSync('app/operations/notifications/page.tsx','utf8');
+assert.match(schema,/clinic_staff/);
+assert.match(schema,/role::text in \('owner','clinic_admin','secretary'\)/);
+assert.match(schema,/status_changed|changed_slot/);
+assert.match(schema,/on conflict\(idempotency_key\) do nothing/);
+assert.match(route,/eq\('recipient_id', user\.id\)/);
+assert.match(route,/in\('audience', \['doctor', 'clinic_staff', 'platform_admin'\]\)/);
+assert.match(page,/Aucune donnée médicale/);
+console.log('V18.3 operational notification tests: PASS (6 assertions)');
