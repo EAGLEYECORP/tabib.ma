@@ -1,0 +1,33 @@
+{
+  "name": "tabib-ma",
+  "version": "1.0.17-v19.8",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "tsc --noEmit",
+    "test": "playwright test",
+    "typecheck": "tsc --noEmit",
+    "release:check": "node scripts/release-check.mjs",
+    "audit:static": "node scripts/audit-static.mjs",
+    "audit:go": "npm run audit:static && npm run release:check",
+    "v19.8:release-check": "node scripts/v19-8-release-check.mjs",
+    "test:v19.8": "node tests/pharmacy-operations-v19-8.spec.mjs",
+    "audit:v19.8": "npm run test:v19.8 && npm run v19.8:release-check"
+  },
+  "dependencies": {
+    "@supabase/ssr": "0.12.6",
+    "@supabase/supabase-js": "2.112.4",
+    "next": "16.3.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1",
+    "typescript": "7.0.2",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "@types/node": "22.15.21"
+  }
+}
