@@ -1,0 +1,11 @@
+# V10 production checklist
+- [ ] Apply `schema_v10_clinics.sql` in staging
+- [ ] Test tenant isolation with two clinics
+- [ ] Test owner/admin/secretary/doctor permissions
+- [ ] Test multi-location and room assignment
+- [ ] Test appointment writes against clinic/location/room
+- [ ] Audit every server route for authorization before mutation
+- [ ] Add invitation workflow before enabling staff onboarding
+- [ ] Verify no service-role key reaches browser
+- [ ] Run RLS and concurrency tests
+- [ ] Backup database before migration

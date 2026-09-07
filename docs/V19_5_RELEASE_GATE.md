@@ -1,0 +1,11 @@
+# V19.5 Release Gate
+- [x] Versioned catalog schema
+- [x] Published-only public read policy
+- [x] Source attribution and effective periods
+- [x] Bounded search endpoint
+- [x] No patient data
+- [x] No autonomous clinical decision support
+- [ ] Authorized official dataset selected and licensed
+- [ ] Supabase staging RLS/IDOR tests
+- [ ] Full install/typecheck/build
+- [ ] Regulatory/legal review

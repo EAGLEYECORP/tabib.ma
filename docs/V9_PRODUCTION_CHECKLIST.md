@@ -1,0 +1,11 @@
+# V9 Production Checklist
+- [ ] Provider vidéo contractuel sélectionné
+- [ ] API server-side et tokens éphémères
+- [ ] RLS auditée
+- [ ] Expiration room/token
+- [ ] Consentement téléconsultation
+- [ ] Aucun enregistrement par défaut
+- [ ] Tests E2E patient/médecin
+- [ ] Tests accès interdit
+- [ ] Monitoring sans données médicales
+- [ ] Politique de conservation validée
