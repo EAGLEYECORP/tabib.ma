@@ -1,0 +1,1 @@
+import Link from 'next/link'; export default function Doctor(){return <main className="wrap"><div className="card"><h1>Espace médecin</h1><p>Gestion du profil, disponibilités, absences, agenda et rendez-vous.</p><p><span className="tag">V6 foundation</span></p><Link className="btn" href="/register">Créer un compte patient pour tester</Link></div></main>}

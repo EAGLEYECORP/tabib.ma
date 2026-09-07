@@ -1,0 +1,1 @@
+export async function GET(){return Response.json({ok:true,service:'tabib-web',version:'v17.0.0',environment:process.env.VERCEL_ENV||'local'},{headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}})}

@@ -1,0 +1,2 @@
+import { getMyClinics, getClinicContext } from '@/lib/clinic'
+export default async function LocationsPage(){ const c=await getMyClinics(); const id=c[0]?.clinic_id; if(!id)return <main><h1>Sites</h1><p>Aucune clinique.</p></main>; const x=await getClinicContext(id); return <main><h1>Sites & cabinets</h1><div className="grid">{x?.locations.map((l:any)=><article className="card" key={l.id}><h2>{l.name}</h2><p>{l.address_line1}, {l.postal_code ?? ''} {l.city}</p><small>{l.country_code} · {l.timezone}</small></article>)}</div></main> }

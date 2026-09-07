@@ -1,0 +1,3 @@
+import { requireSameOrigin } from '@/lib/validation';
+import {createClient} from '../../../lib/supabase/server';
+export async function POST(req:Request){requireSameOrigin(req);const sb=await createClient();const {data:{user}}=await sb.auth.getUser();if(!user)return Response.json({error:'Authentication required'},{status:401});const body=await req.json();const {data,error}=await sb.rpc('book_appointment',{p_doctor_id:body.doctor_id,p_start_at:body.start_at,p_end_at:body.end_at,p_reason:body.reason??null});if(error)return Response.json({error:error.message},{status:400});return Response.json({appointment:data},{status:201})}

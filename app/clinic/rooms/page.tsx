@@ -1,0 +1,2 @@
+import { createClient } from '@/lib/supabase/server'
+export default async function RoomsPage(){ const s=await createClient(); const {data}=await s.from('clinic_rooms').select('id,name,room_type,capacity,active,clinic_locations(name)').order('name'); return <main><h1>Salles & ressources</h1><div className="grid">{(data??[]).map((r:any)=><article className="card" key={r.id}><h2>{r.name}</h2><p>{r.room_type} · capacité {r.capacity}</p><small>{r.clinic_locations?.name ?? 'Site non affecté'} · {r.active?'active':'inactive'}</small></article>)}</div></main> }

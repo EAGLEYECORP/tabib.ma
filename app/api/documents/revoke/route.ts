@@ -1,0 +1,3 @@
+import { requireSameOrigin } from '../../../../lib/validation';
+import {createClient} from '../../../../lib/supabase/server';
+export async function POST(req:Request){requireSameOrigin(req);const sb=await createClient();const {data:{user}}=await sb.auth.getUser();if(!user)return Response.json({error:'Authentication required'},{status:401});const {share_id}=await req.json();const {data,error}=await sb.from('document_shares').update({revoked_at:new Date().toISOString()}).eq('id',share_id).eq('shared_by',user.id).select().maybeSingle();if(error)return Response.json({error:error.message},{status:400});if(!data)return Response.json({error:'Share not found'},{status:404});return Response.json({ok:true})}

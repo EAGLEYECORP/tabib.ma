@@ -1,0 +1,1 @@
+export default function Clinic(){return <main className="wrap"><div className="card"><h1>Espace établissement</h1><p>Structure prête pour multi-cabinets, praticiens, secrétaires et permissions granulaires dans les versions suivantes.</p></div></main>}
